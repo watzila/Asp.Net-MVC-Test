@@ -1,5 +1,5 @@
-#Asp.Net MVC的各種練習
-
+Asp.Net MVC的各種練習
+-----------------------------
 Home：Http連線(Get)
 
 LinQ：LinQ語法練習測試

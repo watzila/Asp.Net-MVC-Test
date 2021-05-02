@@ -1,0 +1,48 @@
+﻿@model MVCTest.Models.Records
+
+<h2>Http連線(Get)</h2>
+
+<div class="content">
+	@using( Html.BeginForm( ) ) {
+		<input type="text" name="city" id="city" onkeypress="searchEnter(event);" required/>
+		<input type="submit" value="搜尋" />
+	}
+
+	<div class="infos">
+		<ul id="result">
+			<li>
+				<h5>地區：@Model.location[Model.nowLocal].locationName</h5>
+				<span></span>
+			</li>
+
+			<li>
+				<h5>降雨機率：@(Model.location[Model.nowLocal].weatherElement[1].time[0].parameter.parameterName) %</h5>
+				<span></span>
+			</li>
+
+			<li>
+				<h5>舒適度：@Model.location[Model.nowLocal].weatherElement[3].time[0].parameter.parameterName</h5>
+				<span></span>
+			</li>
+
+			<li>
+				<h5>天氣現象：@Model.location[Model.nowLocal].weatherElement[0].time[0].parameter.parameterName</h5>
+				<span></span>
+			</li>
+
+			<li>
+				<h5>最低溫度：@(Model.location[Model.nowLocal].weatherElement[2].time[0].parameter.parameterName) ˚C</h5>
+				<span></span>
+			</li>
+
+			<li>
+				<h5>最高溫度：@(Model.location[Model.nowLocal].weatherElement[4].time[0].parameter.parameterName) ˚C</h5>
+				<span></span>
+			</li>
+		</ul>
+
+		@*<div class="weatherIMG">
+				<img src="https://raw.githubusercontent.com/watzila/weather-web2/5b0177e7b2ec58f9aa1fd4233d6c8c23c556d0e1/images/sunIMG.svg" alt="weather" />
+			</div>*@
+	</div>
+</div>

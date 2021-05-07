@@ -28,33 +28,46 @@ var Carousel = function (i, p, n, l, u) {
 			items[i].style.left = i * currentWidth + unit;
 		}
 
-		if (loops && nextBTN.length > 0) {
-			nextBTN[0].onclick = function () {
-				if (isClick) {
-					isClick = false;
-					getData(false, items.length + clickNum);//到controller取值
-					clickNum += 1;
-				}
-			}
-			nextBTN[1].onclick = function () {
-				if (isClick) {
-					isClick = false;
-					clickNum -= 1;
-					getData(true, clickNum);//到controller取值
-				}
-			}
-		} else {
-			for (let i = 0; i < nextBTN.length; i++) {
-				nextBTN[i].onclick = function () {
-					if (isClick && clickNum != i) {
-						for (let j = 0; j < nextBTN.length; j++) {
-							nextBTN[j].style = " ";
-						}
-
+		if (nextBTN.length > 0) {
+			if (loops) {
+				nextBTN[0].onclick = function () {
+					if (isClick) {
 						isClick = false;
-						getData((clickNum > this.innerText), this.innerText);//到controller取值
-						clickNum = this.innerText;
-						this.style.backgroundColor = "yellow";
+
+						if (u != undefined) {
+							getData(false, items.length + clickNum);//到controller取值
+							clickNum += 1;
+						} else {
+							getData2(false);//沒有傳入u參數時取第一個元素生成
+						}
+					}
+				}
+
+				nextBTN[1].onclick = function () {
+					if (isClick) {
+						isClick = false;
+
+						if (u != undefined) {
+							clickNum -= 1;
+							getData(true, clickNum);//到controller取值
+						} else {
+							getData2(true);//沒有傳入u參數時取第一個元素生成
+						}
+					}
+				}
+			} else {
+				for (let i = 0; i < nextBTN.length; i++) {
+					nextBTN[i].onclick = function () {
+						if (isClick && clickNum != i) {
+							for (let j = 0; j < nextBTN.length; j++) {
+								nextBTN[j].style = " ";
+							}
+
+							isClick = false;
+							getData((clickNum > this.innerText), this.innerText);//到controller取值
+							clickNum = this.innerText;
+							this.style.backgroundColor = "yellow";
+						}
 					}
 				}
 			}
@@ -136,6 +149,13 @@ var Carousel = function (i, p, n, l, u) {
 
 		xhr.send(JSON.stringify({ num: index }));
 	}
+
+	//沒有傳入u參數時取第一個元素生成
+	function getData2(dir) {
+		var clone = items[0].outerHTML//取得元素字串
+		createEle(dir, clone);//預先創建下一個元素
+	}
 };
 
 new Carousel("li", "ul", "btn", true, "/Carousel/P");
+//new Carousel("li", "ul", "btn", true);

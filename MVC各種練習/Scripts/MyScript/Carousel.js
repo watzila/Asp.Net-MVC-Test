@@ -15,7 +15,7 @@ var Carousel = function (i, p, n, l, u) {
 	let loops = l;//是否單一左右循環
 
 	//初始化
-	(function () {
+	; (function () {
 		let width = window.getComputedStyle(items[0]).getPropertyValue("width");//當前元素的寬度(含單位)
 		currentWidth = Number(width.replace(/px|%/, ""));//當前元素的寬度值
 		unit = (width.indexOf("px") > 0) ? "px" : "%";//單位
@@ -28,7 +28,7 @@ var Carousel = function (i, p, n, l, u) {
 			items[i].style.left = i * currentWidth + unit;
 		}
 
-		if (loops) {
+		if (loops && nextBTN.length > 0) {
 			nextBTN[0].onclick = function () {
 				if (isClick) {
 					isClick = false;
@@ -48,13 +48,13 @@ var Carousel = function (i, p, n, l, u) {
 				nextBTN[i].onclick = function () {
 					if (isClick && clickNum != i) {
 						for (let j = 0; j < nextBTN.length; j++) {
-							nextBTN[j].className = " ";
+							nextBTN[j].style = " ";
 						}
 
 						isClick = false;
 						getData((clickNum > this.innerText), this.innerText);//到controller取值
 						clickNum = this.innerText;
-						this.className = "slick-active";
+						this.style.backgroundColor = "yellow";
 					}
 				}
 			}

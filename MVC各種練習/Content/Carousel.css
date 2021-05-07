@@ -1,0 +1,51 @@
+* {
+	box-sizing:border-box;
+}
+
+.ul {
+	display:flex;
+	position: relative;
+	width: 90%;
+	height: 100px;
+	background-color: yellow;
+	overflow: hidden;
+}
+
+.li {
+	position: absolute;
+	width: 20%;
+	max-width: 20%;
+	height: inherit;
+	list-style: none;
+	border: 1px solid;
+	text-align: center;
+}
+
+@media screen and (max-width:1280px) {
+	.li{
+		max-width: 25%;
+		width: 25%;
+	}
+}
+
+@media screen and (max-width:911px) {
+	.li {
+		max-width: 33.34%;
+		width: 33.34%;
+	}
+}
+
+@media screen and (max-width:768px) {
+	.li {
+		max-width: 50%;
+		width: 50%;
+	}
+}
+
+@media screen and (max-width:576px) {
+	.li{
+		-ms-flex: 0 0 100%;
+		max-width: 100%;
+		width: 100%;
+	}
+}

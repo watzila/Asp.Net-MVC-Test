@@ -37,12 +37,12 @@ namespace MVCTest.Controllers {
 		}
 
 		[HttpPost]
-		public JsonResult P( int clickNum ) {
-			if( clickNum < 0 ) {
-				clickNum = r.location.Length + clickNum;
+		public ActionResult P( int num ) {
+			if( num < 0 ) {
+				num = r.location.Length + num;
 			}
-			var a = r.location[clickNum];
-			return Json(a);
+			var a = r.location[num];
+			return PartialView(a);
 		}
 	}
 }

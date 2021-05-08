@@ -38,6 +38,9 @@ namespace MVCTest.Controllers {
 
 		[HttpPost]
 		public ActionResult P( int num ) {
+			if( Math.Abs(num) >= r.location.Length ) {
+				num %= r.location.Length;
+			}
 			if( num < 0 ) {
 				num = r.location.Length + num;
 			}

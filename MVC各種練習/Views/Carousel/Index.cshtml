@@ -1,5 +1,6 @@
 ﻿@model MVCTest.Models.Records
 @{
+	ViewBag.Title = "輪播圖事件";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,8 +9,8 @@
 <h2>輪播圖事件</h2>
 <div>@Model.location.Length</div>
 
-<button class="btn"><</button>
-<button class="btn">></button>
+<button class="btn">&lt;</button>
+<button class="btn">&gt;</button>
 
 <ul class="ul">
 	@for( int i = 0; i < 5; i++ ) {
@@ -20,9 +21,27 @@
 	}
 </ul>
 
+<hr />
+
+<div>
+	<div style="width:30%;height:80px;overflow: hidden;">
+		<ul class="u" style="width: 100%;">
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+		</ul>
+	</div>
+
+	<div>
+		@for(int i =0;i<3;i++ ) {
+			<button class="b">@(i)</button>
+		}
+	</div>
+</div>
+
 
 @*@section scripts{
-	@Scripts.Render("~/Scripts/MyScript/Carousel.js")
-}*@
+		@Scripts.Render("~/Scripts/MyScript/Carousel.js")
+	}*@
 
 <script src="~/Scripts/MyScript/Carousel.js"></script>

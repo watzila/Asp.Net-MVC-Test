@@ -37,7 +37,7 @@
 				c.items[i].style.left = i * c.currentWidth + c.unit;
 			}
 
-			//2種按鈕事件
+			//第1種按鈕事件
 			if (c.nextBTN.length > 0) {
 				if (c.loops) {
 					c.nextBTN[0].onclick = function () {
@@ -48,6 +48,7 @@
 						c._leftMove();
 					}
 				} else {
+					//第2種按鈕事件
 					for (let i = 0; i < c.nextBTN.length; i++) {
 						c.nextBTN[i].style.backgroundColor = (i === 0) ? c.color : "";
 

@@ -1,0 +1,39 @@
+﻿<!--必須引入-->
+@using PagedList.Mvc;
+@using PagedList;
+
+@model PagedList.IPagedList<MVCTest.Models.Location>
+@{
+	ViewBag.Title = "PagedList套件換頁";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--預設的樣式-->
+<link rel="stylesheet" href="~/Content/PagedList.css" />
+
+<h2>PagedList套件換頁</h2>
+
+<div class="infos">
+	<ul id="result">
+		@for( int i = 0; i < Model.Count; i++ ) {
+			<li>
+				<h5>地區：@Model[i].locationName</h5>
+				<span></span>
+			</li>
+
+			<li>
+				<h5>降雨機率：@(Model[i].weatherElement[1].time[0].parameter.parameterName) %</h5>
+				<span></span>
+			</li>
+
+			<li>----------------------------------------------------------------------------------------</li>
+		}
+	</ul>
+
+	@*<div class="weatherIMG">
+			<img src="https://raw.githubusercontent.com/watzila/weather-web2/5b0177e7b2ec58f9aa1fd4233d6c8c23c556d0e1/images/sunIMG.svg" alt="weather" />
+		</div>*@
+</div>
+
+@Html.PagedListPager(Model, Page => Url.Action("", new { Page = Page }))
+<!--更多設定圖解 https://kevintsengtw.blogspot.com/2013/10/aspnet-mvc-pagedlistmvc_17.html-->

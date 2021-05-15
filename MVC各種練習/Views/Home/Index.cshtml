@@ -15,32 +15,32 @@
 	<div class="infos">
 		<ul id="result">
 			<li>
-				<h5>地區：@Model.location[Model.nowLocal].locationName</h5>
+				<h5>地區：@Model.location[0].locationName</h5>
 				<span></span>
 			</li>
 
 			<li>
-				<h5>降雨機率：@(Model.location[Model.nowLocal].weatherElement[1].time[0].parameter.parameterName) %</h5>
+				<h5>降雨機率：@(Model.location[0].weatherElement[1].time[0].parameter.parameterName) %</h5>
 				<span></span>
 			</li>
 
 			<li>
-				<h5>舒適度：@Model.location[Model.nowLocal].weatherElement[3].time[0].parameter.parameterName</h5>
+				<h5>舒適度：@Model.location[0].weatherElement[3].time[0].parameter.parameterName</h5>
 				<span></span>
 			</li>
 
 			<li>
-				<h5>天氣現象：@Model.location[Model.nowLocal].weatherElement[0].time[0].parameter.parameterName</h5>
+				<h5>天氣現象：@Model.location[0].weatherElement[0].time[0].parameter.parameterName</h5>
 				<span></span>
 			</li>
 
 			<li>
-				<h5>最低溫度：@(Model.location[Model.nowLocal].weatherElement[2].time[0].parameter.parameterName) ˚C</h5>
+				<h5>最低溫度：@(Model.location[0].weatherElement[2].time[0].parameter.parameterName) ˚C</h5>
 				<span></span>
 			</li>
 
 			<li>
-				<h5>最高溫度：@(Model.location[Model.nowLocal].weatherElement[4].time[0].parameter.parameterName) ˚C</h5>
+				<h5>最高溫度：@(Model.location[0].weatherElement[4].time[0].parameter.parameterName) ˚C</h5>
 				<span></span>
 			</li>
 		</ul>

@@ -35,14 +35,15 @@ namespace MVCTest.Controllers {
 
 		[HttpPost]
 		public ActionResult Index(string city ) {
+			Models.Records rr = new Models.Records( );
+
 			city = city.Trim( );//去除前後空格
-			
-			city =(city[0]=='台') ?city.Replace("台","臺"):city;//把台換成臺(單引號是char雙引號是string)
 
-			var name = r.location.Select(item => item.locationName).ToArray( );//把所有的城市名字取出返回陣列
-			r.nowLocal = Array.IndexOf(name, city);//尋找城市在陣列的索引號並放進Models.Records
+			city = ( city[0] == '台' ) ? city.Replace("台", "臺") : city;//把台換成臺(單引號是char雙引號是string)
 
-			return View(r);
+			rr.location = r.location.Where(item => item.locationName == city).ToArray( );//使用lamba來搜尋
+
+			return View(rr);
 		}
 	}
 }

@@ -10,7 +10,6 @@ namespace MVCTest.Models {
 	}
 
 	public class Records {
-		public int nowLocal { get; set; }//現在地區
 		public Location[ ] location { get; set; }
 	}
 

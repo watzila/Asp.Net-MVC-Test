@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinqController.cs" />
     <Compile Include="Controllers\PagedListController.cs" />
@@ -151,6 +152,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\QRCode.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -182,6 +184,8 @@
     <Content Include="Views\Carousel\P.cshtml" />
     <Content Include="Views\PagedList\Index.cshtml" />
     <Content Include="Views\QRCode\Index.cshtml" />
+    <Content Include="Views\Email\Index.cshtml" />
+    <Content Include="Views\Email\EmailBody.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,7 +21,7 @@
 	text-align: center;
 }
 
-li:hover{
+.li:hover{
 	background-color:aqua;
 }
 

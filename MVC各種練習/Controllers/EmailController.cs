@@ -25,13 +25,13 @@ namespace MVC各種練習.Controllers {
 
 			using(MailMessage mail = new MailMessage ()) {
 				mail.From = new MailAddress(myEmail);//自己的信箱
-				mail.To.Add(emailTo);//收信方email 可以用逗號區分多個收件人
+				mail.Bcc.Add(emailTo);//收信方email 可以用逗號區分多個收件人
 				mail.Subject = "測試";//主旨
 				//mail.Body = "";//內容
 				mail.IsBodyHtml = true;//若你的內容是HTML格式，則為True
 
 				//mail.Attachments.Add(new Attachment("C:\\SomeFile.txt"));//附件
-				mail.AlternateViews.Add(EmailBody( ));
+				mail.AlternateViews.Add(EmailBody( ));//html裡有圖片食用這種方式寄才可以顯示
 
 				using( SmtpClient smtp = new SmtpClient(smtpAddress, port) ) {
 					smtp.Credentials = new NetworkCredential(myEmail, myPwd);

@@ -8,7 +8,7 @@ using MVCTest.Models;
 using Newtonsoft.Json;
 using PagedList;//到NuGet安裝PagedList.Mvc(舊版)
 
-namespace MVC各種練習.Controllers {
+namespace MVCTest.Controllers {
 	public class PagedListController : Controller {
 		// GET: PagedList
 		public ActionResult Index( int Page =1) {

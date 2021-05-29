@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ZXing;
 
-namespace MVC各種練習.Controllers {
+namespace MVCTest.Controllers {
 	public class QRCodeController : Controller {
 
 		public ActionResult Index( ) {
@@ -38,7 +38,8 @@ namespace MVC各種練習.Controllers {
 			Response.End( );//緩衝區所有資料發送到客戶端並關閉
 		}
 
-		public static string CreateQRCode2( ) {
+		//轉換成Base64
+		public string CreateQRCode2( ) {
 			System.IO.MemoryStream ms = new System.IO.MemoryStream( );//記憶流
 
 			//創建QRCode

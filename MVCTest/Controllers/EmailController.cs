@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Net;
-using System.Net.Mail;
+using System.Net;//寄信用
+using System.Net.Mail;//寄信用
 using System.Net.Mime;
-using ZXing;
+using ZXing;//QRCode
 
-namespace MVC各種練習.Controllers {
+namespace MVCTest.Controllers {
 	public class EmailController : Controller {
 
 		public ActionResult Index( ) {
@@ -31,12 +31,12 @@ namespace MVC各種練習.Controllers {
 				mail.IsBodyHtml = true;//若你的內容是HTML格式，則為True
 
 				//mail.Attachments.Add(new Attachment("C:\\SomeFile.txt"));//附件
-				mail.AlternateViews.Add(EmailBody( ));//html裡有圖片食用這種方式寄才可以顯示
+				mail.AlternateViews.Add(EmailBody( ));//html裡有圖片使用這種方式寄才可以顯示
 
 				using( SmtpClient smtp = new SmtpClient(smtpAddress, port) ) {
 					smtp.Credentials = new NetworkCredential(myEmail, myPwd);
 					smtp.EnableSsl = true;
-					smtp.Send(mail);
+					smtp.Send(mail);//寄出
 				}
 			}
 
@@ -61,11 +61,11 @@ namespace MVC各種練習.Controllers {
 			bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);//點陣圖以jpeg格式寫入到記憶流裡
 			ms.Position = 0;
 
-			//string path = Server.MapPath(@"Images/QRCode.jpg");
+			//string path = Server.MapPath(@"Images/QRCode.jpg");//讀檔案路徑
 			//LinkedResource img = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
 
 			LinkedResource img = new LinkedResource(ms, MediaTypeNames.Image.Jpeg);
-			img.ContentId = "qr";
+			img.ContentId = "qr";//設定cid名稱
 			string body = "<h1>Hello~~</h1><img src=cid:qr></img>";
 			AlternateView av = AlternateView.CreateAlternateViewFromString(body, null, MediaTypeNames.Text.Html);
 			av.LinkedResources.Add(img);

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC各種練習.Controllers {
+namespace MVCTest.Controllers {
 	public class ExcelController : Controller {
 		// GET: Execl
 		public ActionResult Index( ) {

@@ -8,5 +8,6 @@ namespace MVCTest.Models {
 		//以下的名稱和類型必須和資料庫一樣
 		public Guid ID { get; set; }
 		public string Name { get; set; }
+		public DateTime CreateTime { get; set; }
 	}
 }

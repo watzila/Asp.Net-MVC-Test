@@ -1,8 +1,57 @@
-﻿
+﻿@model List<MVCTest.Models.ADONet>
 @{
-    ViewBag.Title = "ADO.Net資料庫連線";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "ADO.Net資料庫連線";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<style type="text/css">
+	table {
+		width: 100%;
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+	}
 
+	td, th {
+		padding: 8px;
+		border: 1px solid #dddddd;
+		text-align: left;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+</style>
+
+<div>
+	<h2>ADO.Net資料庫連線(一般寫法)</h2>
+
+	<button onclick="new Popup({url:'/ADONet/Create'})">新增</button>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			@if( Model != null ) {
+				for( int i = 0; i < Model.Count; i++ ) {
+					<tr>
+						<td>@(i+1)</td>
+						<td>@Model[i].Name</td>
+						<td>
+							<button onclick="new Popup({url:'/ADONet/Edit?ID=@Model[i].ID'})">編輯</button>
+							<button onclick="location.href='/ADONet/Delete?ID=@Model[i].ID'">刪除</button>
+						</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+</div>
+
+
+<script type="text/javascript" src="/Scripts/MyScript/Popup.js"></script>

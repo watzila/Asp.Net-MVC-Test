@@ -9,6 +9,7 @@
 		p.url = (typeof set === "object" && set.url !== undefined) ? set.url : '';
 		p.w = (typeof set === "object" && set.width !== undefined) ? set.width : 800;
 		p.h = (typeof set === "object" && set.height !== undefined) ? set.height : 600;
+		p.isLoad = false;
 
 		(function () {
 			var body = document.querySelector("body");
@@ -32,20 +33,17 @@
 
 				window.frames[0].document.querySelector("form").onsubmit = function () {
 					div.style.display = "none";
-					//必須等大約100毫秒在重整頁面
-					setTimeout(function () {
-						window.location.reload(true);
-					},100);
+					p.isLoad = true;
 				};
+
+				if (p.isLoad) {
+					window.location.reload(true);
+					p.isLoad = false;
+				}
 			};
 
 			div.appendChild(iframe);
 			body.appendChild(div);
-
-			window.οnunlοad = function () {
-				//刷新父页面
-				location.reload(true);
-			};
 		})();
 
 	};
